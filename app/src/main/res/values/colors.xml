@@ -23,4 +23,15 @@
     <color name="chip_text">#D7BAFF</color>
 
     <color name="placeholder_bg">#353534</color>
+
+    <!-- Admin View Colors -->
+    <color name="badge_article">#E05353</color>
+    <color name="badge_video">#5399E0</color>
+    <color name="badge_course">#53E08D</color>
+    <color name="badge_book">#E0A853</color>
+    <color name="admin_label">#8BED00</color>
+    <color name="admin_header_subtitle">#9E9E9E</color>
+    <color name="admin_stat_bg">#1A1A2E</color>
+    <color name="admin_search_bg">#1C1C1C</color>
+    <color name="pagination_text">#888888</color>
 </resources>
