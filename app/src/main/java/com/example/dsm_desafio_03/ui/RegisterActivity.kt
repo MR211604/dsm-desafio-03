@@ -36,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
-                    val request = RegisterRequest(username, email, password, 2)
+                    val request = RegisterRequest(username, email, password, 4)
                     val response = ApiClient.authService.register(request)
 
                     if (response.isSuccessful) {

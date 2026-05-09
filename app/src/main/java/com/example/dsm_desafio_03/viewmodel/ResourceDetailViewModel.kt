@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dsm_desafio_03.model.ResourceModel
 import com.example.dsm_desafio_03.model.ResourceRepository
+import com.example.dsm_desafio_03.model.AddFavoriteRequest
 import kotlinx.coroutines.launch
 
 class ResourceDetailViewModel : ViewModel() {
@@ -30,6 +31,45 @@ class ResourceDetailViewModel : ViewModel() {
                     _resource.value = response.data
                 } else {
                     _error.value = response.message
+                }
+            } catch (e: Exception) {
+                _error.value = e.message ?: "An unexpected error occurred"
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun addFavoriteResource(token: String, userId: Int, resourceId: Int) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val request = AddFavoriteRequest(userId, resourceId)
+                val response = repository.addFavoriteResource(token, request)
+                if (response.isSuccessful && response.body()?.ok == true) {
+                    _error.value = response.body()?.message ?: "Added to favorites successfully"
+                } else {
+                    _error.value = response.body()?.message ?: "Failed to add to favorites"
+                }
+            } catch (e: Exception) {
+                _error.value = e.message ?: "An unexpected error occurred"
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun rateResource(token: String, userId: Int, resourceId: Int, rating: Int) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val request = com.example.dsm_desafio_03.model.RatingRequest(userId, resourceId, rating)
+                val response = repository.rateResource(token, request)
+                if (response.isSuccessful && response.body()?.ok == true) {
+                    _error.value = response.body()?.message ?: "Rating submitted successfully"
+                    fetchResourceDetail(resourceId)
+                } else {
+                    _error.value = response.body()?.message ?: "Failed to submit rating"
                 }
             } catch (e: Exception) {
                 _error.value = e.message ?: "An unexpected error occurred"

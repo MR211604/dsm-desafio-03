@@ -10,12 +10,16 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
+import android.content.Context
+import org.json.JSONObject
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.dsm_desafio_03.R
 import com.example.dsm_desafio_03.model.ResourceModel
+import com.example.dsm_desafio_03.utils.JwtUtils
 import com.example.dsm_desafio_03.viewmodel.ResourceDetailViewModel
 
 class ResourceDetailFragment : Fragment() {
@@ -39,6 +43,7 @@ class ResourceDetailFragment : Fragment() {
         val tvDesc: TextView = root.findViewById(R.id.tv_detail_desc)
         val tvRatingText: TextView = root.findViewById(R.id.tv_rating_text)
         val btnOpenResource: Button = root.findViewById(R.id.btn_open_resource)
+        val btnFavorite: ImageView = root.findViewById(R.id.btn_favorite)
         val progressBar: ProgressBar = root.findViewById(R.id.progress_detail)
 
         val star1: ImageView = root.findViewById(R.id.star1)
@@ -72,10 +77,10 @@ class ResourceDetailFragment : Fragment() {
                 val ratings = it.userRatings
                 if (ratings != null && ratings.isNotEmpty()) {
                     val avg = ratings.map { r -> r.rating }.average()
-                    tvRatingText.text = "(${"%.1f".format(avg)} / ${ratings.size} Reviews)"
+                    tvRatingText.text = "(${"%.1f".format(avg)} / ${ratings.size} Calificaciones)"
                     setStars(avg, stars)
                 } else {
-                    tvRatingText.text = "(0.0 / 0 Reviews)"
+                    tvRatingText.text = "(0.0 / 0 Calificaciones)"
                     setStars(0.0, stars)
                 }
             }
@@ -85,10 +90,67 @@ class ResourceDetailFragment : Fragment() {
             progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
 
+        viewModel.error.observe(viewLifecycleOwner) { errorMsg ->
+            errorMsg?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btnFavorite.setOnClickListener {
+            val sharedPreferences = requireActivity().getSharedPreferences("auth_prefs", Context.MODE_PRIVATE)
+            val token = sharedPreferences.getString("jwt_token", null)
+            val userId = JwtUtils.getUserIdFromToken(token)
+
+            if (token != null && userId != null) {
+                viewModel.addFavoriteResource(token, userId, resourceId)
+            } else {
+                Toast.makeText(requireContext(), "No session token or invalid user ID", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         btnOpenResource.setOnClickListener {
             resourceUrl?.let { url ->
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 startActivity(browserIntent)
+            }
+        }
+
+        val ratingStar1: ImageView = root.findViewById(R.id.rating_star1)
+        val ratingStar2: ImageView = root.findViewById(R.id.rating_star2)
+        val ratingStar3: ImageView = root.findViewById(R.id.rating_star3)
+        val ratingStar4: ImageView = root.findViewById(R.id.rating_star4)
+        val ratingStar5: ImageView = root.findViewById(R.id.rating_star5)
+        val btnSubmitRating: Button = root.findViewById(R.id.btn_submit_rating)
+        val ratingStars = listOf(ratingStar1, ratingStar2, ratingStar3, ratingStar4, ratingStar5)
+
+        var selectedRating = 0
+
+        ratingStars.forEachIndexed { index, imageView ->
+            imageView.setOnClickListener {
+                selectedRating = index + 1
+                for (i in 0..4) {
+                    if (i < selectedRating) {
+                        ratingStars[i].setImageResource(android.R.drawable.star_on)
+                    } else {
+                        ratingStars[i].setImageResource(android.R.drawable.star_off)
+                    }
+                }
+            }
+        }
+
+        btnSubmitRating.setOnClickListener {
+            if (selectedRating == 0) {
+                Toast.makeText(requireContext(), "Please select a rating first", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val sharedPreferences = requireActivity().getSharedPreferences("auth_prefs", Context.MODE_PRIVATE)
+            val token = sharedPreferences.getString("jwt_token", null)
+            val userId = JwtUtils.getUserIdFromToken(token)
+
+            if (token != null && userId != null) {
+                viewModel.rateResource(token, userId, resourceId, selectedRating)
+            } else {
+                Toast.makeText(requireContext(), "No session token or invalid user ID", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -110,4 +172,3 @@ class ResourceDetailFragment : Fragment() {
         }
     }
 }
-

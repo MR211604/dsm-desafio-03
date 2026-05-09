@@ -1,5 +1,6 @@
 package com.example.dsm_desafio_03.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +36,6 @@ class ResourceAdapter(
 
     inner class ResourceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imgResource: ImageView = itemView.findViewById(R.id.img_resource)
-        private val imgIconType: ImageView = itemView.findViewById(R.id.img_icon_type)
         private val tvTitle: TextView = itemView.findViewById(R.id.tv_title)
         private val tvDescription: TextView = itemView.findViewById(R.id.tv_description)
         private val tvTag1: TextView = itemView.findViewById(R.id.tv_tag1)
@@ -45,19 +45,13 @@ class ResourceAdapter(
             tvTitle.text = resource.title
             tvDescription.text = resource.description
             tvTag1.text = resource.type
-
-            // Rating dummy random display, since API doesn't provide rating from user prompt.
-            tvRating.text = "4.5"
-
-            // Set type icon dummy
-            val iconRes = when (resource.type.uppercase()) {
-                "VIDEO" -> android.R.drawable.ic_media_play
-                "BOOK" -> android.R.drawable.ic_menu_agenda
-                "ARTICLE" -> android.R.drawable.ic_menu_sort_by_size
-                "COURSE" -> android.R.drawable.ic_menu_manage
-                else -> android.R.drawable.ic_menu_info_details
+            // Calculating average rating
+            tvRating.text = if (resource.userRatings?.isNotEmpty() == true) {
+                val avgRating = resource.userRatings.map { it.rating }.average()
+                String.format("%.1f", avgRating)
+            } else {
+                "0.0"
             }
-            imgIconType.setImageResource(iconRes)
 
             if (resource.image != null) {
                 imgResource.load(resource.image) {
