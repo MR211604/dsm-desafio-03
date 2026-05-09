@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/surface"
+    app:cardCornerRadius="8dp"
+    app:strokeColor="@color/card_border"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Resource Image -->
+        <ImageView
+            android:id="@+id/img_admin_resource"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@color/placeholder_bg" />
+
+        <!-- Type Badge -->
+        <TextView
+            android:id="@+id/tv_admin_type_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/badge_bg"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/on_surface"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/img_admin_resource"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="ARTICLE" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tv_admin_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/on_surface"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/img_admin_resource"
+            app:layout_constraintEnd_toStartOf="@id/tv_admin_view_asset"
+            app:layout_constraintTop_toBottomOf="@id/tv_admin_type_badge"
+            tools:text="Advanced Fluid Dynamics" />
+
+        <!-- Description -->
+        <TextView
+            android:id="@+id/tv_admin_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/admin_header_subtitle"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.2"
+            app:layout_constraintStart_toEndOf="@id/img_admin_resource"
+            app:layout_constraintEnd_toStartOf="@id/tv_admin_view_asset"
+            app:layout_constraintTop_toBottomOf="@id/tv_admin_title"
+            tools:text="Comprehensive study of fluid behavior under extreme pressures and temperatur..." />
+
+        <!-- Tags -->
+        <TextView
+            android:id="@+id/tv_admin_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/chip_outline_bg"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textColor="@color/on_surface_variant"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@id/img_admin_resource"
+            app:layout_constraintTop_toBottomOf="@id/tv_admin_description"
+            tools:text="Thermodynamics" />
+
+        <!-- View Asset Button -->
+        <TextView
+            android:id="@+id/tv_admin_view_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver recurso"
+            android:textColor="@color/primary_light"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_admin_edit_asset"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Edit Asset Button -->
+        <ImageView
+            android:id="@+id/tv_admin_edit_asset"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="28dp"
+            android:src="@android:drawable/ic_menu_edit"
+            app:tint="@color/primary_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_admin_view_asset" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
