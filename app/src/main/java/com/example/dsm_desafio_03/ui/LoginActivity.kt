@@ -43,6 +43,12 @@ class LoginActivity : AppCompatActivity() {
                         val loginResponse = response.body()
                         if (loginResponse != null && loginResponse.ok) {
                             Toast.makeText(this@LoginActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
+
+                            val sharedPreferences = getSharedPreferences("auth_prefs", MODE_PRIVATE)
+                            sharedPreferences.edit()
+                                .putString("jwt_token", loginResponse.token)
+                                .apply()
+
                             val intent = Intent(this@LoginActivity, MainActivity::class.java)
                             startActivity(intent)
                             finish()
@@ -64,4 +70,3 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
-
