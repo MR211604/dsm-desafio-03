@@ -3,18 +3,18 @@
     <item
         android:id="@+id/nav_explore"
         android:icon="@android:drawable/ic_menu_compass"
-        android:title="Explore" />
+        android:title="Explorar" />
     <item
         android:id="@+id/nav_favorites"
         android:icon="@android:drawable/star_off"
-        android:title="Favorites" />
+        android:title="Favoritos" />
     <item
         android:id="@+id/nav_admin"
         android:icon="@android:drawable/ic_menu_manage"
-        android:title="Admin" />
+        android:title="Administrador" />
     <item
         android:id="@+id/nav_profile"
         android:icon="@android:drawable/ic_menu_myplaces"
-        android:title="Profile" />
+        android:title="Perfil" />
 </menu>
 

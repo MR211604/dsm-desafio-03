@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Register New Access"
+                android:text="Registrar nuevo acceso"
                 android:textColor="@color/on_surface"
                 android:textSize="28sp"
                 android:textStyle="bold" />
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Create credentials to access resource modules."
+                android:text="Crea tus credenciales para acceder a nuestro sistema de recursos."
                 android:textColor="@color/on_surface_variant"
                 android:textSize="14sp" />
 
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Alias (Username)"
+                android:text="Alias (Nombre de usuario)"
                 android:textColor="@color/on_surface"
                 android:fontFamily="monospace"
                 android:textSize="12sp" />
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Identification (Email)"
+                android:text="Identificación (Email)"
                 android:textColor="@color/on_surface"
                 android:fontFamily="monospace"
                 android:textSize="12sp" />
@@ -101,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Security Key"
+                android:text="LLave de seguridad (contraseña)"
                 android:textColor="@color/on_surface"
                 android:fontFamily="monospace"
                 android:textSize="12sp" />
@@ -125,7 +125,7 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="32dp"
                 android:backgroundTint="@color/primary"
-                android:text="REGISTER SESSION →"
+                android:text="REGISTRAR SESIÓN"
                 android:fontFamily="monospace"
                 android:textColor="@color/on_primary"
                 android:textAllCaps="true"
@@ -140,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Already registered? Initiate session"
+        android:text="¿Ya tienes una cuenta? Inicia sesión aquí"
         android:textColor="@color/primary"
         android:fontFamily="monospace"
         android:textSize="14sp"

@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Secure Access \nGateway"
+                android:text="Iniciar sesión"
                 android:textColor="@color/on_surface"
                 android:textSize="28sp"
                 android:textStyle="bold" />
@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Authenticate to access resource modules and architectural repositories."
+                android:text="Autentícate para acceder a diversos recursos y modos de aprendizaje."
                 android:textColor="@color/on_surface_variant"
                 android:textSize="14sp" />
 
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:fontFamily="monospace"
-                android:text="Identification (Email)"
+                android:text="Identificación (Email)"
                 android:textColor="@color/on_surface"
                 android:textSize="12sp" />
 
@@ -93,18 +93,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:fontFamily="monospace"
-                    android:text="Security Key"
+                    android:text="Llave de seguridad (contraseña)"
                     android:textColor="@color/on_surface"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:fontFamily="monospace"
-                    android:text="RESET_KEY"
-                    android:textColor="@color/primary"
-                    android:textSize="12sp" />
             </RelativeLayout>
 
             <EditText
@@ -127,7 +119,7 @@
                 android:layout_marginTop="32dp"
                 android:backgroundTint="@color/primary"
                 android:fontFamily="monospace"
-                android:text="INITIATE SESSION →"
+                android:text="INICIAR SESIÓN"
                 android:textAllCaps="true"
                 android:textColor="@color/on_primary"
                 app:cornerRadius="4dp" />
@@ -141,7 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="New user? Register here"
+        android:text="¿Nuevo aquí? Regístrate aquí"
         android:textColor="@color/primary"
         android:fontFamily="monospace"
         android:textSize="14sp"
