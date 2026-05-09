@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Header Image -->
+        <ImageView
+            android:id="@+id/img_detail_header"
+            android:layout_width="0dp"
+            android:layout_height="350dp"
+            android:scaleType="centerCrop"
+            android:alpha="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@color/placeholder_bg" />
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/semi_transparent_bg"
+            android:padding="12dp"
+            android:src="@android:drawable/ic_menu_revert"
+            app:tint="@color/on_surface"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_favorite"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/semi_transparent_bg"
+            android:padding="12dp"
+            android:src="@android:drawable/stat_notify_sdcard"
+            app:tint="@color/secondary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Detail Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="-100dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp"
+            app:strokeColor="@color/card_border"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/img_detail_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Top Neon Border -->
+                <View
+                    android:id="@+id/view_neon_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/secondary"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Content Margin Group -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp"
+                    app:layout_constraintTop_toBottomOf="@id/view_neon_border">
+
+                    <!-- Tags -->
+                    <TextView
+                        android:id="@+id/tv_detail_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/chip_outline_bg"
+                        android:backgroundTint="@color/chip_bg"
+                        android:fontFamily="monospace"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:textColor="@color/chip_text"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="HARDWARE_ARCH" />
+
+                    <!-- Title -->
+                    <TextView
+                        android:id="@+id/tv_detail_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_detail_tag"
+                        tools:text="Advanced Microcontroller\nInterfacing Strategies" />
+
+                    <!-- Description -->
+                    <TextView
+                        android:id="@+id/tv_detail_desc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:lineSpacingMultiplier="1.5"
+                        android:textColor="@color/on_surface_variant"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_detail_title"
+                        tools:text="An in-depth analysis of high-speed bus architectures and peripheral integration methodologies..." />
+
+                    <!-- Rating Block -->
+                    <LinearLayout
+                        android:id="@+id/layout_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_detail_desc">
+
+                        <ImageView android:id="@+id/star1" android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/star_on" app:tint="@color/secondary"/>
+                        <ImageView android:id="@+id/star2" android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/star_on" app:tint="@color/secondary" android:layout_marginStart="4dp"/>
+                        <ImageView android:id="@+id/star3" android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/star_on" app:tint="@color/secondary" android:layout_marginStart="4dp"/>
+                        <ImageView android:id="@+id/star4" android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/star_on" app:tint="@color/secondary" android:layout_marginStart="4dp"/>
+                        <ImageView android:id="@+id/star5" android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/star_off" app:tint="@color/secondary" android:layout_marginStart="4dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_rating_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:fontFamily="monospace"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            tools:text="(4.2 / 128 Reviews)" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Action Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="40dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp"
+            app:strokeColor="@color/card_border"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/card_details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btn_open_resource"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_margin="24dp"
+                android:backgroundTint="@color/primary_light"
+                android:fontFamily="monospace"
+                android:text="OPEN RESOURCE"
+                android:textColor="@color/card_border"
+                android:textStyle="bold"
+                app:cornerRadius="4dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <ProgressBar
+            android:id="@+id/progress_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/primary"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

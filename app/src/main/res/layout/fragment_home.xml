@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <HorizontalScrollView
+        android:id="@+id/scroll_filters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="24dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chip_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/chip_outline_bg"
+                android:backgroundTint="@color/primary_light"
+                android:text="All Resources"
+                android:textColor="@color/chip_text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="12dp"/>
+
+            <TextView
+                android:id="@+id/chip_books"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/chip_outline_bg"
+                android:backgroundTint="@color/chip_bg"
+                android:text="Libros"
+                android:textColor="@color/chip_text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="12dp"/>
+
+            <TextView
+                android:id="@+id/chip_videos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/chip_outline_bg"
+                android:backgroundTint="@color/chip_bg"
+                android:fontFamily="monospace"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="Videos"
+                android:textColor="@color/chip_text" />
+
+            <TextView
+                android:id="@+id/chip_articles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/chip_outline_bg"
+                android:backgroundTint="@color/chip_bg"
+                android:text="Articles"
+                android:textColor="@color/chip_text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="12dp"/>
+
+            <TextView
+                android:id="@+id/chip_courses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/chip_outline_bg"
+                android:backgroundTint="@color/chip_bg"
+                android:text="Courses"
+                android:textColor="@color/chip_text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="12dp"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_resources"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="24dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/scroll_filters"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_resource_card"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
