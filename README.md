@@ -1,6 +1,14 @@
 # App de Gestión de Recursos (dsmdesafio03)
 
+**Autor**: Leo Fernando Miranda Rodriguez
+
 Esta aplicación de Android permite la exploración, gestión y valoración de distintos recursos de aprendizaje (Libros, Videos, Artículos y Cursos). Está diseñada con una arquitectura basada en roles que distingue a los usuarios regulares de los administradores.
+
+## Video Demostrativo
+Pueden verificar detalladamente el funcionamiento completo de la aplicación y operaciones CRUD en el entorno real de la app en esta demo: [
+Desmostración de aplicación - desafio 3 DSM](https://www.youtube.com/watch?v=R6V8i5twpO0)
+
+El proposito principal de esta aplicacion es demostrar el uso de Firebase para autenticacion y operaciones CRUD de destinos turisticos.
 
 ## Funcionalidades Principales
 
